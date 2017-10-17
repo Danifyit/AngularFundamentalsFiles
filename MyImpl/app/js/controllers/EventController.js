@@ -4,6 +4,10 @@ eventsApp.controller('EventController',
   function EventController($scope) {
 
     $scope.myStyle = {color: 'grey'};
+    $scope.myClass = "blue";
+    $scope.myList = ['item1', 'item2', 'item3', 'item4'];
+    
+
 
     $scope.sortorder = 'name';
     $scope.event = {
