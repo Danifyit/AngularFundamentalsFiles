@@ -1,6 +1,7 @@
 'use strict';
 
-eventsApp.controller('EventController',
+eventsApp.controller('EventController', ['$scope', 'eventData', EventController]);
+
   function EventController($scope, eventData) {
 
     $scope.myStyle = {color: 'grey'};
@@ -10,9 +11,11 @@ eventsApp.controller('EventController',
 
 
     $scope.sortorder = 'name';
-    $scope.event = eventData.event;
+    eventData.getEvent(function(data){
+      $scope.event = data;
+    });
 
-    
+
 
     $scope.upVoteSession = function(session) {
       session.upVoteCount++;
@@ -22,4 +25,4 @@ eventsApp.controller('EventController',
       session.upVoteCount--;
     }
 
-  });
+  }
