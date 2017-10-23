@@ -25,7 +25,7 @@
             <ul ng-class-odd="'blue'">
               <li ng-repeat="item in myList" ng-class-odd="'blue'">{{item}}</li>
           </div>
-
+          <button type="button" class="btn btn-primary" ng-click="scrollToSession()">Scroll</button>
         </div>
 
         <div class="row">
@@ -59,7 +59,7 @@
           <option value="advanced" >Advanced</option>
         </select>
         <ul class="thumbnails">
-          <li ng-repeat="session in event.sessions | orderBy:sortorder | limitTo:3 | filter:query.level">
+          <li ng-repeat="session in event.sessions | orderBy:sortorder | limitTo:3 | filter:query.level" id="session{{session.id}}">
 
             <div class="row session">
               <div class="span0 well votingWidget">

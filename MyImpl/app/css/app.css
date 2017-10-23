@@ -1,4 +1,8 @@
 /* app css stylesheet */
+.index a{
+  display: block;
+}
+
 .hoverwell:hover {
   background-color: #52575c;
   cursor: pointer;

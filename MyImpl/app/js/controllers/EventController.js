@@ -1,8 +1,8 @@
 'use strict';
 
-eventsApp.controller('EventController', ['$scope', 'eventData', '$log', EventController]);
+eventsApp.controller('EventController', ['$scope', '$anchorScroll', 'eventData', '$log', EventController]);
 
-  function EventController($scope, eventData, $log) {
+  function EventController($scope, $anchorScroll, eventData, $log) {
 
     $scope.myStyle = {color: 'grey'};
     $scope.myClass = "blue";
@@ -21,12 +21,10 @@ eventsApp.controller('EventController', ['$scope', 'eventData', '$log', EventCon
         $log.warn(data, status, headers, config);
       });
 
-    // .success(function(data, status, headers, config){
-    //   successcb(data);
-    // })
-    // .error(function(data, status, headers, config){
-    //   $log.warn(data, status, headers, config);
-    // })
+      $scope.scrollToSession = function(){
+        console.log('in anchorScroll');
+          $anchorScroll();
+      }
 
 
     $scope.upVoteSession = function(session) {
