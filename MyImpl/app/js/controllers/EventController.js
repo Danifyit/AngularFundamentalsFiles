@@ -1,8 +1,8 @@
 'use strict';
 
-eventsApp.controller('EventController', ['$scope', 'eventData', EventController]);
+eventsApp.controller('EventController', ['$scope', 'eventData', '$log', EventController]);
 
-  function EventController($scope, eventData) {
+  function EventController($scope, eventData, $log) {
 
     $scope.myStyle = {color: 'grey'};
     $scope.myClass = "blue";
@@ -11,10 +11,22 @@ eventsApp.controller('EventController', ['$scope', 'eventData', EventController]
 
 
     $scope.sortorder = 'name';
-    eventData.getEvent(function(data){
-      $scope.event = data;
-    });
+    var promise = eventData.getEvent();
 
+    promise
+      .success(function(event){
+        $scope.event = event;
+      })
+      .error(function(data, status, headers, config){
+        $log.warn(data, status, headers, config);
+      });
+
+    // .success(function(data, status, headers, config){
+    //   successcb(data);
+    // })
+    // .error(function(data, status, headers, config){
+    //   $log.warn(data, status, headers, config);
+    // })
 
 
     $scope.upVoteSession = function(session) {
