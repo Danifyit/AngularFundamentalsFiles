@@ -1,17 +1,21 @@
 'use strict';
 
-eventsApp.controller('EventController', ['$scope', '$anchorScroll', 'eventData', '$log', EventController]);
+eventsApp.controller('EventController',
+['$scope', '$anchorScroll', 'eventDataPromise', '$log', '$routeParams', '$route', EventController]);
 
-  function EventController($scope, $anchorScroll, eventData, $log) {
+  function EventController($scope, $anchorScroll, eventDataPromise, $log, $routeParams, $route) {
+    //
+    // $scope.myStyle = {color: 'grey'};
+    // $scope.myClass = "blue";
+    // $scope.myList = ['item1', 'item2', 'item3', 'item4'];
 
-    $scope.myStyle = {color: 'grey'};
-    $scope.myClass = "blue";
-    $scope.myList = ['item1', 'item2', 'item3', 'item4'];
-
-
+console.log($route); //på detta objekt kan man komma åt alla parameterar inkl queryStrings
+    $scope.reload = function(){
+      $route.reload();//reload current route/view
+    }
 
     $scope.sortorder = 'name';
-    var promise = eventData.getEvent();
+    var promise = eventDataPromise.getEvent($routeParams.eventId);
 
     promise
       .success(function(event){

@@ -1,21 +1,49 @@
-<!DOCTYPE html>
-<html>
+
+
+<!doctype html>
+<html ng-app="eventsApp">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.css">
 
-  </head>
-  <body class="index">
-    <a href="EventDetails.html">Event Details</a>
-    <a href="EditProfile.html">Edit Profile</a>
 
-    <a href="samples/CacheSample.html">Cache Sample</a>
-    <a href="samples/CompileSample.html">Compile Sample</a>
-    <a href="samples/LocaleSample.html">Locale Sample</a>
-    <a href="samples/TimeoutSample.html">Timeout Sample</a>
-    <a href="samples/FilterSample.html">Filter Sample</a>
-    <a href="samples/CookieStoreSample.html">Cookie Store Sample</a>
+  </head>
+
+  <body ng-cloak>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li><a href="/sample.html">AndularJS Samples</a></li>
+            <li><a href="#/newEvent">Create Event</a></li>
+            <li><a href="#/eventList">List Event</a></li>
+          </ul>
+        </div>
+      </div>
+      <ng-view></ng-view>
+    </div>
+
+    <!-- LIBRARYS -->
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/underscore-1.4.4.min.js"></script>
+    <script src="/lib/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-sanitize.js"></script>
+    <script src="../lib/angular/angular-route.js"></script>
+    <script src="../lib/angular/angular-resource.js"></script>
+
+    <script src="/js/app.js"></script>
+
+    <!-- SERVICES -->
+    <script src="/js/filters.js"></script>
+    <script src="/js/services/eventData.js"></script>
+    <script src="/js/services/eventDataPromise.js"></script>
+
+    <!-- APP  -->
+    <script src="/js/controllers/EventController.js"></script>
+    <script src="/js/controllers/EventListController.js"></script>
+    <script src="/js/controllers/EditEventController.js"></script>
+
 
   </body>
 </html>
