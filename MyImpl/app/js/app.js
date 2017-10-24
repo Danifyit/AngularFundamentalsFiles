@@ -24,5 +24,6 @@ var eventsApp = angular.module('eventsApp', ['ngRoute', 'ngResource'])
         controller: 'EventController'
       })
       .otherwise({redirectTo: '/events'});
-      $locationProvider.html5Mode(true);
+      //requires rewrite rule on the server so that all routes that not match above redirects to index.html
+      // $locationProvider.html5Mode(true);
   });

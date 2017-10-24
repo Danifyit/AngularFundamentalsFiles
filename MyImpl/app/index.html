@@ -11,11 +11,11 @@
 
   <body ng-cloak>
     <div class="container">
-      <div class="navbar">
+      <div class="navbar" ng-controller="MainMenuController">
         <div class="navbar-inner">
           <ul class="nav">
-            <li><a href="/sample.html">AndularJS Samples</a></li>
-            <li><a href="#/newEvent">Create Event</a></li>
+            <li><a href="#/sample">AndularJS Samples</a></li>
+            <li><a href="#/newEvent>Create Event</a></li>
             <li><a href="#/eventList">List Event</a></li>
           </ul>
         </div>
@@ -40,6 +40,7 @@
     <script src="/js/services/eventDataPromise.js"></script>
 
     <!-- APP  -->
+    <script src="/js/controllers/MainMenuController.js"></script>
     <script src="/js/controllers/EventController.js"></script>
     <script src="/js/controllers/EventListController.js"></script>
     <script src="/js/controllers/EditEventController.js"></script>
